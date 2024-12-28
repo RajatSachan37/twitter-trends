@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Trends</title>
+</head>
+
+<body>
+    <h1>Twitter Trends</h1>
+    <button id="runScript">Click here to run the script</button>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('runScript').addEventListener('click', () => {
+            fetch('/run_script')
+                .then(response => response.json())
+                .then(data => {
+                    const results = document.getElementById('results');
+                    if (data.error) {
+                        results.innerHTML = `<p>Error: ${data.error}</p>`;
+                    } else {
+                        results.innerHTML = `
+                            <h3>These are the most happening topics as on ${data.date_time}</h3>
+                            <ul>
+                                <li>${data.nameoftrend1}</li>
+                                <li>${data.nameoftrend2}</li>
+                                <li>${data.nameoftrend3}</li>
+                                <li>${data.nameoftrend4}</li>
+                            </ul>
+                            <p>The IP address used for this query was ${data.ip_address}</p>
+                        `;
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>
