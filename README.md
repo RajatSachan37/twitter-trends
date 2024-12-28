@@ -22,8 +22,8 @@ This project is a Flask web application that scrapes trending topics from Twitte
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/twitter-trends-scraper.git
-cd twitter-trends-scraper
+git clone https://github.com/RajatSachan37/twitter-trends.git
+cd twitter-trends
 ```
 
 ### 2. Install Dependencies
